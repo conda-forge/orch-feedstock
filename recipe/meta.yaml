@@ -1,6 +1,6 @@
 {% set name = "orch" %}
-{% set version = "0.4.2" %}
-{% set sha256 = "2fb7f342597023ee13950d6612f64b18e373fc454f5873cd8802e5588fec5dd6" %}
+{% set version = "0.4.3" %}
+{% set sha256 = "5267251f1b2c4786fe1cf597ef17eff134850c8177cbab4604e22119aa73ebd0" %}
 
 package:
   name: {{ name|lower }}
