@@ -8,26 +8,28 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  url: https://github.com/xpdAcq/{{ name }}/releases/download/{{ version }}/{{name}}-{{ version }}.tar.gz
+  url: https://github.com/xpdAcq/{{ name }}/releases/download/{{ version }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
   noarch: python
-  number: 0
-  script: python -m pip install --no-deps --ignore-installed .
+  number: 1
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
-  build:
-    - python >=3
+  host:
+    - python {{ python_min }}
     - pip
   run:
-    - python >=3
+    - python >={{ python_min }}
     - xonsh
     - xonda
     - pyyaml
     - lazyasd
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - orch 
   commands:
